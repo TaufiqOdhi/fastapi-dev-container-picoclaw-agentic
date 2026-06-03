@@ -1,0 +1,19 @@
+services:
+  fastapi-picoclaw:
+    build:
+      context: .
+      args:
+        USER_UID: ${USER_UID:-1000}
+        USER_GID: ${USER_GID:-1000}
+    container_name: fastapi-picoclaw-dev
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./src:/app/src
+      - ./workspace:/home/appuser/.picoclaw/workspace
+      - ./picoclaw_config:/home/appuser/.picoclaw
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PYTHONDONTWRITEBYTECODE=1
