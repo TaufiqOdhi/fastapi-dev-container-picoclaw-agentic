@@ -15,10 +15,5 @@ echo "Starting PicoClaw AI Assistant in the background..."
 # For some tools, starting it without arguments runs the agent, but you can also use 'nohup'
 nohup picoclaw > /tmp/picoclaw.log 2>&1 &
 
-echo "Starting FastAPI server..."
-# Run Uvicorn server for FastAPI
-if [ -f "src/main.py" ]; then
-    exec uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload
-else
-    exec uvicorn main:app --host 0.0.0.0 --port 8000 --reload
-fi
+echo "Starting bash shell..."
+exec /bin/bash

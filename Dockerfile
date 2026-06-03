@@ -36,12 +36,6 @@ RUN groupadd -g "${USER_GID}" appgroup && \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the FastAPI project
-COPY . .
-
-# Make the entrypoint script executable
-RUN chmod +x /app/entrypoint.sh
-
 # Switch to the non-root user
 USER appuser
 
@@ -49,4 +43,4 @@ USER appuser
 EXPOSE 8000
 
 # Run the entrypoint script which starts both FastAPI and PicoClaw
-CMD ["bash", "/app/entrypoint.sh"]
+CMD ["bash"]
