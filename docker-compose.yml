@@ -12,7 +12,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./src:/app/src
+      - ./src:/home/appuser/.picoclaw/workspace/src
       - ./workspace:/home/appuser/.picoclaw/workspace
       - ./picoclaw_config:/home/appuser/.picoclaw
     environment:
